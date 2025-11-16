@@ -19,8 +19,8 @@ body{
 
 body.dark{
     background: linear-gradient(135deg, #0b0b0b 0%, #151515 50%, #0b0b0b 100%);
-    background-size: 300% 300%;
-    animation: background-pan 20s alternate infinite;
+    background-size: 200% 200%; 
+    animation: background-pan 30s alternate infinite;
     color:#fff
 }
 
@@ -67,37 +67,64 @@ body.dark::before {
 }
 
 
+/* --- HOME SECTION TWO-COLUMN LAYOUT --- */
+#home .home-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    max-width: 1000px;
+    width: 90%;
+}
+
+#home .text-content {
+    text-align: left;
+    max-width: 500px;
+}
+
 .profile-photo-home {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    width: 280px; 
+    height: auto; 
+    border-radius: 15px; 
     object-fit: cover;
-    margin-bottom: 2rem;
+    margin-bottom: 0; 
     border: 5px solid rgba(0, 180, 220, 0.5); 
     transition: transform 0.4s;
 }
+/* --- HOME SECTION LAYOUT END --- */
 
 
+/* --- NAV STYLING --- */
 .nav{
     position:fixed;
     top:0;
-    right:0;
+    left: 0; 
+    width: 100%; 
     padding:1rem;
     z-index:10;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center; 
     gap: 10px;
 }
+
 .main-nav {
     display: flex;
     gap: 8px;
     padding: 5px 10px;
     border-radius: 12px;
-    backdrop-filter: blur(10px); 
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(0px); 
+    background: transparent; 
+    border: 0px solid transparent; 
+    transition: box-shadow 0.4s;
 }
+
+/* .main-nav:hover {
+    box-shadow: 0 0 15px rgba(0, 180, 220, 0.5);
+    border-color: rgba(0, 180, 220, 0.1);
+} */
+
 .main-nav .btn.small {
     background: none;
     border: none;
@@ -111,61 +138,79 @@ body.dark::before {
 }
 
 .main-nav button.active {
-    color: #00b4dc; 
+    color: #fff; 
     font-weight: 600;
     opacity: 1;
+    background-color: #00b4dc; 
+    border-radius: 8px; 
+    box-shadow: inset 0 0 8px rgba(0, 180, 220, 0.8); 
 }
 .main-nav button.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 10%;
-    width: 80%;
-    height: 2px;
-    background-color: #00b4dc;
-    border-radius: 1px;
+    content: none;
+}
+
+#toggleTheme {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 11; 
 }
 
 
 .btn{
-    padding:.7rem 1.4rem;
-    border-radius:12px;
+    padding:.8rem 1.6rem; 
+    border-radius:10px; 
     border:none;
-    background:#111;
+    background:#00b4dc; 
     color:#fff;
     cursor:pointer;
-    transition:.3s
+    transition:all .3s;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 180, 220, 0.4); 
 }
+
+body.dark .btn:not(.small) {
+    background: #00b4dc;
+    box-shadow: 0 4px 15px rgba(0, 180, 220, 0.4); 
+}
+
 .btn.small{
     padding:.4rem .7rem;
     font-size:.9rem
 }
 .btn:hover{
-    opacity:.8;
-    transform: translateY(-1px);
+    opacity:1; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 180, 220, 0.6); 
 }
 .title{
     font-size:3rem;
-    font-weight:700
+    font-weight:800; 
 }
 .glow{
-    text-shadow:0 0 15px rgba(0,180,220,.7), 0 0 5px rgba(0,180,220,.4); 
+    text-shadow: 
+        0 0 25px rgba(0, 180, 220, 1), 
+        0 0 10px rgba(0, 180, 220, 0.6); 
 }
 .subtitle{
     opacity:.8;
     margin-top:.3rem
 }
 .glass{
-    backdrop-filter:blur(20px);
-    background:rgba(255,255,255,.12);
-    border:1px solid rgba(255,255,255,.2);
-    padding:1.5rem;
-    border-radius:20px
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.08); 
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+}
+.hover-glow {
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .hover-glow:hover{
-    box-shadow:0 0 25px rgba(0,180,220,.5); 
-    transform:translateY(-4px);
-    border-color: rgba(0,180,220,.5) !important;
+    box-shadow: 0 0 40px rgba(0, 180, 220, 0.6), 0 0 15px rgba(0, 180, 220, 0.3);
+    transform:translateY(-5px);
+    border-color: rgba(0,180,220,.7) !important;
 }
 .project-grid{
     display:grid;
@@ -259,20 +304,22 @@ body.dark .skills-category {
 }
 .skill-badge {
     padding: 0.5rem 1rem;
-    border-radius: 6px;
+    border-radius: 8px; 
     font-size: 0.9rem;
     font-weight: 500;
     background: #e0f7fa; 
     color: #00838f;
+    border: 1px solid #b2ebf2; 
     transition: 0.3s;
 }
 body.dark .skill-badge {
-    background: #004d40;
-    color: #80cbc4;
+    background: rgba(0, 77, 64, 0.5); 
+    color: #e0f2f1;
+    border: 1px solid rgba(128, 203, 196, 0.5); 
 }
 .skill-badge:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); 
 }
 
 /* --- EXPERIENCE TIMELINE STYLING (MODIFIED FOR HORIZONTAL SCROLL) --- */
@@ -343,14 +390,16 @@ body.dark .skill-badge {
 body.dark .site-footer {
     background: #000;
 }
+
 .profile-photo-footer {
     width: 60px;
-    height: 60px;
-    border-radius: 50%;
+    height: auto; 
+    border-radius: 8px; 
     object-fit: cover;
     margin-bottom: 0.5rem;
     border: 2px solid #00b4dc;
 }
+
 .social-links {
     margin-top: 1rem;
 }
@@ -366,6 +415,23 @@ body.dark .site-footer {
 .social-links a:hover {
     opacity: 1;
     color: #00b4dc;
+}
+
+
+@media (max-width: 1000px) {
+    /* Home section stacks vertically on medium screens */
+    #home .home-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+    #home .text-content {
+        text-align: center;
+        max-width: 90%;
+    }
+    .profile-photo-home {
+        order: -1; /* Move photo to the top when stacked */
+    }
 }
 
 
@@ -388,8 +454,9 @@ body.dark .site-footer {
     /* 2. Photo Adjustment (Mobile) */
     .profile-photo-home {
         width: 150px;
-        height: 150px;
+        height: auto;
         margin-bottom: 1.5rem;
+        border-radius: 10px; 
     }
 
     /* 3. Layouts */
