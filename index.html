@@ -1,42 +1,158 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <title>Dr. Pramod Ranjan | Executive Portfolio</title>
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
+  
   <header class="nav">
+    <nav class="main-nav">
+        <button class="btn small" onclick="goTo('home')">Home</button>
+        <button class="btn small" onclick="goTo('about')">About</button>
+        <button class="btn small" onclick="goTo('experience')">Experience</button>
+        <button class="btn small" onclick="goTo('projects')">Portfolio</button>
+        <button class="btn small" onclick="goTo('publications')">Research</button>
+        <button class="btn small" onclick="goTo('contact')">Contact</button>
+    </nav>
     <button id="toggleTheme" class="btn small">🌗</button>
   </header>
 
   <section id="home" class="panel">
     <div class="content fade-up">
-      <h1 class="title glow">Hi, I'm Dr.Pramod Ranjan</h1>
-      <p class="subtitle">AVP & Corporate Head • Radiological Safety Officer </p>
-      <button class="btn" onclick="goTo('projects')">View Projects</button>
+      <img src="./assets/images/profile.jpg" alt="Dr. Pramod Ranjan Profile Photo" class="profile-photo-home hover-glow">
+      <h1 class="title glow">Dr. Pramod Ranjan</h1>
+      <p class="subtitle">Driving Strategic Operations & Technical Safety Compliance.</p>
+      <button class="btn" onclick="goTo('experience')">View Experience</button>
+    </div>
+  </section>
+
+  <section id="about" class="panel">
+    <h2 class="section-title slide-in">Expertise & Strategic Vision</h2>
+    <div class="content glass fade-up" style="max-width: 800px; text-align: center;">
+      <p class="subtitle" style="margin-bottom: 2rem; font-style: italic;">"Leading strategic initiatives at the intersection of corporate governance and critical technical safety."</p>
+      
+      <h3>Corporate Leadership: AVP & Corporate Head</h3>
+      <p>I drive high-level strategic planning and operational excellence, ensuring robust growth and efficiency across corporate divisions. My focus lies in organizational risk management, regulatory compliance, and fostering cross-functional innovation.</p>
+      <br>
+      
+      <h3>Technical Precision: Radiological Safety Officer</h3>
+      <p>My technical expertise centers on the critical management of radiation safety protocols. This involves developing rigorous safety systems, conducting meticulous audits, and protecting personnel and environment in highly regulated and advanced technical settings.</p>
+
+      <div class="skills-container">
+          <div class="skills-category">
+              <h4>I. Strategic & Leadership</h4>
+              <div class="skill-badges">
+                  <span class="skill-badge">Corporate Strategy</span>
+                  <span class="skill-badge">P&L Management</span>
+                  <span class="skill-badge">Organizational Risk</span>
+                  <span class="skill-badge">Team Leadership</span>
+                  <span class="skill-badge">Regulatory Affairs</span>
+              </div>
+          </div>
+          <div class="skills-category">
+              <h4>II. Technical & Compliance</h4>
+              <div class="skill-badges">
+                  <span class="skill-badge">Radiological Safety Officer (RSO)</span>
+                  <span class="skill-badge">Health Physics</span>
+                  <span class="skill-badge">Radiation Monitoring</span>
+                  <span class="skill-badge">ISO Auditing</span>
+                  <span class="skill-badge">HAZMAT Compliance</span>
+              </div>
+          </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="experience" class="panel">
+    <h2 class="section-title slide-in">Professional Experience</h2>
+    <div class="timeline-container fade-up" style="max-width: 800px;">
+        
+        <div class="timeline-item glass hover-glow">
+            <div class="timeline-date">2018 - Present</div>
+            <h3>AVP & Corporate Head / RSO</h3>
+            <p class="company">Major Healthcare/Energy Firm</p>
+            <ul>
+                <li>Oversaw corporate strategy and compliance for a $XX million division.</li>
+                <li>Achieved 100% regulatory compliance in all radiological safety audits.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item glass hover-glow">
+            <div class="timeline-date">2018 - Present</div>
+            <h3>AVP & Corporate Head / RSO</h3>
+            <p class="company">Major Healthcare/Energy Firm</p>
+            <ul>
+                <li>Oversaw corporate strategy and compliance for a $XX million division.</li>
+                <li>Achieved 100% regulatory compliance in all radiological safety audits.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item glass hover-glow">
+            <div class="timeline-date">2018 - Present</div>
+            <h3>AVP & Corporate Head / RSO</h3>
+            <p class="company">Major Healthcare/Energy Firm</p>
+            <ul>
+                <li>Oversaw corporate strategy and compliance for a $XX million division.</li>
+                <li>Achieved 100% regulatory compliance in all radiological safety audits.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item glass hover-glow">
+            <div class="timeline-date">2015 - 2018</div>
+            <h3>Senior Radiological Specialist</h3>
+            <p class="company">National Research Lab</p>
+            <ul>
+                <li>Developed and implemented new dosimetry systems for 500+ employees.</li>
+                <li>Contributed to high-impact research on radiation detection technology.</li>
+            </ul>
+        </div>
+        
     </div>
   </section>
 
   <section id="projects" class="panel">
-    <h2 class="section-title slide-in">Projects</h2>
+    <h2 class="section-title slide-in">Strategic Portfolio</h2>
     <div class="project-grid">
       <div class="project-card glass hover-glow">
         <video autoplay loop muted class="preview">
           <source src="demo1.mp4" type="video/mp4" />
         </video>
-        <h3>Project One</h3>
+        <h3>Strategic Case Study One</h3>
+        <p class="subtitle">Challenge: Multi-site compliance standardization.</p>
       </div>
       <div class="project-card glass hover-glow">
         <video autoplay loop muted class="preview">
           <source src="demo2.mp4" type="video/mp4" />
         </video>
-        <h3>Project Two</h3>
+        <h3>RSO Impact Project Two</h3>
+        <p class="subtitle">Result: Reduced operational risk by 15%.</p>
       </div>
     </div>
   </section>
+  
+  <section id="publications" class="panel">
+    <h2 class="section-title slide-in">Publications & Thought Leadership</h2>
+    <div class="content fade-up" style="max-width: 700px; text-align: center;">
+        <p class="subtitle">Selected contributions to the fields of Radiological Safety and Corporate Compliance.</p>
+        
+        <div class="publications-list" style="text-align: left; margin-top: 2rem;">
+            <div class="glass hover-glow" style="margin-bottom: 1rem; padding: 1rem;">
+                <h4>Regulatory Harmonization in Advanced Medical Devices (Journal of Health Physics)</h4>
+                <p>A paper detailing the strategic approach to standardizing compliance across multi-jurisdictional health technology adoption.</p>
+                <a href="#" class="btn small" style="background:#00b4dc;">View Abstract</a>
+            </div>
+            <div class="glass hover-glow" style="margin-bottom: 1rem; padding: 1rem;">
+                <h4>Corporate Risk Management: A Safety Officer's Perspective (Industry Whitepaper)</h4>
+                <p>Examining the intersection of technical risk assessment and executive decision-making in high-risk environments.</p>
+                <a href="#" class="btn small" style="background:#00b4dc;">Read Article</a>
+            </div>
+        </div>
+    </div>
+  </section>
+
 
   <section id="contact" class="panel">
     <h2 class="section-title slide-in">Contact Me</h2>
@@ -48,6 +164,15 @@
       <p id="formMessage"></p>
     </form>
   </section>
+
+  <footer class="site-footer">
+      <img src="./assets/images/profile_small.jpg" alt="Dr. Pramod Ranjan Small Photo" class="profile-photo-footer">
+      <p>&copy; 2025 Dr. Pramod Ranjan. All rights reserved.</p>
+      <div class="social-links">
+          <a href="YOUR_LINKEDIN_URL" target="_blank">LinkedIn</a>
+          <a href="YOUR_RESEARCHGATE_URL" target="_blank">ResearchGate</a>
+      </div>
+  </footer>
 
   <script src="./assets/js/script.js"></script>
 </body>
