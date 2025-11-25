@@ -177,6 +177,18 @@ body.dark::before {
     content: none;
 }
 
+/* Burger Menu Button - Hidden on Desktop */
+.burger-menu {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 20;
+}
+
 #toggleTheme {
     position: fixed;
     top: 1rem;
@@ -630,7 +642,6 @@ body.dark .gallery-image {
         border: 1px solid #ccc;
     }
 }
-
 /* Responsive Design */
 @media (max-width: 1000px) {
     #home .home-wrapper {
@@ -645,9 +656,8 @@ body.dark .gallery-image {
     .profile-photo-home {
         order: -1;
     }
-}
-
-@media (max-width: 650px) {
+}@media (max-width: 650px) {
+    /* --- 1. GENERAL LAYOUT ADJUSTMENTS --- */
     .panel {
         padding: 4rem 1rem;
         height: auto;
@@ -679,6 +689,7 @@ body.dark .gallery-image {
         max-width: 300px;
     }
 
+    /* --- 2. TIMELINE ADJUSTMENTS (Left-aligned) --- */
     .timeline-container {
         padding-left: 1rem;
         padding-right: 1rem;
@@ -710,28 +721,70 @@ body.dark .gallery-image {
         margin-left: 0;
     }
 
+    /* --- 3. NAVIGATION & BURGER MENU (THEME AWARE) --- */
     .nav {
-        top: auto;
-        bottom: 0;
+        top: 0;
+        bottom: auto;
         right: 0;
         width: 100%;
-        padding: 0.5rem 0;
+        padding: 0.5rem 1rem;
         flex-direction: row;
-        justify-content: center;
-        background: rgba(0, 0, 0, 0.9);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .main-nav {
-        width: 90%;
-        justify-content: space-around;
-        background: none;
-        backdrop-filter: none;
-        border: none;
-    }
-    #toggleTheme {
-        display: none;
+        justify-content: space-between;
+        align-items: center;
+        
+        /* CHANGED: Uses theme variable instead of hardcoded black */
+        background: var(--bg-color); 
+        /* CHANGED: Subtle shadow for separation in both light/dark modes */
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+        border-bottom: none;
     }
 
+    .burger-menu {
+        display: block;
+        color: var(--text-color); /* Ensures icon is visible on white or black */
+    }
+
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        
+        /* CHANGED: Matches the body background color */
+        background: var(--bg-color);
+        padding: 1rem 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        border-top: 1px solid var(--glass-border);
+    }
+
+    .main-nav.active {
+        display: flex;
+        animation: slideDown 0.3s ease-out;
+    }
+
+    .main-nav .btn.small {
+        width: 100%;
+        text-align: left;
+        padding: 1rem 2rem;
+        border-radius: 0;
+        /* CHANGED: Uses text color variable */
+        color: var(--text-color);
+        border-bottom: 1px solid rgba(128, 128, 128, 0.1); /* Subtle divider */
+    }
+    
+    .main-nav .btn.small:hover {
+        /* CHANGED: Highlight visible in both modes */
+        background: rgba(0, 180, 220, 0.1); 
+        color: #00b4dc;
+    }
+
+    #toggleTheme {
+        display: flexbox;
+    }
+
+    /* --- 4. GALLERY ADJUSTMENTS --- */
     .gallery-grid {
         grid-template-columns: 1fr;
         width: 100%;
