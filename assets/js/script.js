@@ -50,3 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setActiveLink(firstSection.id);
     }
 });
+// Toggle Mobile Menu
+function toggleMenu() {
+    document.querySelector('.main-nav').classList.toggle('active');
+}
